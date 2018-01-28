@@ -1,0 +1,13 @@
+
+.link-div {
+    width: 10em;
+    height: 7em;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    display: inline-block;
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+    margin: 1em;
+}

@@ -1,0 +1,9 @@
+{
+	"manifest_version": 2,
+	"name": "My Cool New Tab Extension",
+	"version": "0.1",
+	"permissions" : ["management", "storage"],
+	"chrome_url_overrides" : {
+		"newtab": "index.html"
+	}
+}

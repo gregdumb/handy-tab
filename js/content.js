@@ -23,6 +23,11 @@ var defaultLinks = [{
 	href: "https://facebook.com"
 }];
 
+var defaultSettings = {
+	columns: 4,
+	rowHeight: 20
+};
+
 /*chrome.storage.sync.set({'links': defaultLinks}, function() {
     console.log("Message saved");
 });*/
@@ -61,7 +66,12 @@ function saveAndReloadLinks() {
 
 function createLink(linkData) {
 
-	let marginDiv = $('<div/>', {class: "link-spacer"});
+	let percent = (100 / defaultSettings.columns);
+	
+	let marginDiv = $('<div/>', {class: "link-spacer"}).css({
+		width: percent + "%",
+		height: defaultSettings.rowHeight + "em"
+	});
 	
     let imageDiv = $('<div/>', {class: "link-div"})
     .css({

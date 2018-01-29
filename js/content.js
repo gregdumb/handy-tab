@@ -35,7 +35,7 @@ var currentLink = null;
 function buildLinks() {
 	$("#links").empty();
 	chrome.storage.sync.get(['links'], function(result) {
-		console.log(result.links);
+		console.log(JSON.stringify(result.links));
 		links = result.links;
 		for(let i = 0; i < result.links.length; i++) {
 			let href = result.links[i].href;
@@ -150,9 +150,13 @@ $("#input-submit").on("click", function() {
 $("#input-delete").on("click", function() {
 	if(currentLink != null) {
 		let index = links.indexOf(currentLink);
-		console.log("Deleting at", index);
-		links.splice(index, 1);
+		if(index != -1) {
+			console.log("Deleting at", index);
+			links.splice(index, 1);
+		}
+		
 		saveAndReloadLinks();
+		closeModal();
 	}
 });
 

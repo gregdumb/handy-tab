@@ -8,12 +8,23 @@ body {
 	height: 100%;
 	text-align: center;
 	background: linear-gradient(white, lightgrey);
+	overflow: hidden;
+}
+
+#link-scroller {
+	overflow-y: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
 
 .links-container {
 	width: 80%;
 	background-color: none;
-	
+	padding-top: 4%;
+	padding-bottom: 8em;
 	margin-left: auto;
 	margin-right: auto;
 	text-align: left;
@@ -36,6 +47,8 @@ body {
 	background-position: center;
 	display: inline-block;
 	background-color: white;
+	border: 1em solid rgba(0,0,0,0);
+	box-sizing: border-box;
 	/*border-style: solid;
 	border-width: 1px;
 	border-color: black;*/
@@ -62,6 +75,7 @@ body {
 	text-align: left;
 	padding: 2em;
 	width: 40em;
+	margin-top: 10%;
 }
 
 input[type=text] {
@@ -102,13 +116,25 @@ button {
 }
 
 #chrome-links {
-	background-color: lightblue;
+	background-color: #0000000f;
 	position: absolute;
 	bottom: 0;
 	left: 0;
 	right: 0;
 	margin-left: auto;
 	margin-right: auto;
-	width: 50em;
-	height: 10em;
+	padding: 1em;
+	letter-spacing: 4em;
+}
+
+a:link, a:visited {
+	color: #333;
+}
+
+a:hover {
+	color: #555;
+}
+
+.chrome-link {
+	margin: 2em;
 }

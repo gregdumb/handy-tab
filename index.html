@@ -1,20 +1,22 @@
 <html>
     <head>
-        <link rel="stylesheet" href="./style.css" />
+		
+		<link rel="stylesheet" href="./css/style.css" />
+		<script type="text/javascript" src="./js/fontawesome-all.js"></script>
     </head>
     <body>
         <div id="root">
-			
-            <div id="links" class="links-container">
-                <!-- Populated by JQuery -->
-			</div>
-			
-			<div id="chrome-links-container">
-				<div id="chrome-links">
-					<a href="#" id="settings-button">Settings</a>
-					<a href="#" id="extensions-button">Extensions</a>
-					<a href="#" id="addlink-button">New link</a>
+			<div id="link-scroller">
+				<div id="links" class="links-container">
+					<!-- Populated by JQuery -->
 				</div>
+			</div>
+            
+			<div id="chrome-links">
+				<a href="#" id="settings-button" title="Chrome Settings"><i class="fas fa-cog fa-5x"></i></a>
+				<a href="#" id="extensions-button" title="Extensions"><i class="fas fa-puzzle-piece fa-5x"></i></a> 
+				<a href="#" id="addlink-button" title="Add Bookmark"><i class="fas fa-plus fa-5x"></i></a>
+				
 			</div>
 			
 		</div>
@@ -39,7 +41,7 @@
 				<button id="input-delete" style="background-color: red; float: right;">Delete</button>
 			</div>
 		</div>
-        <script type="text/javascript" src="./jquery-3.3.1.min.js"></script>
-        <script type="text/javascript" src="./content.js"></script>
+        <script type="text/javascript" src="./js/jquery-3.3.1.min.js"></script>
+        <script type="text/javascript" src="./js/content.js"></script>
     </body>
 </html>

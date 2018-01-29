@@ -1,8 +1,8 @@
 {
 	"manifest_version": 2,
-	"name": "My Cool New Tab Extension",
+	"name": "Handy Tab",
 	"version": "0.1",
-	"permissions" : ["management", "storage"],
+	"permissions" : ["management", "storage", "tabs"],
 	"chrome_url_overrides" : {
 		"newtab": "index.html"
 	}

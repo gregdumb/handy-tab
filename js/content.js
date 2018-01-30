@@ -9,49 +9,47 @@ $("#extensions-button").on("click", function() {
 	chrome.tabs.update({url:'chrome://extensions'});
 });
 
-var defaultLinks = [{
-    name: "Google",
-    image: "https://cdn.vox-cdn.com/thumbor/Pkmq1nm3skO0-j693JTMd7RL0Zk=/0x0:2012x1341/1200x800/filters:focal(0x0:2012x1341)/cdn.vox-cdn.com/uploads/chorus_image/image/47070706/google2.0.0.jpg",
-	href: "https://google.com"
-}, {
-    name: "Wikipedia",
-    image: "https://upload.wikimedia.org/wikipedia/en/thumb/8/80/Wikipedia-logo-v2.svg/1200px-Wikipedia-logo-v2.svg.png",
-	href: "https://wikipedia.org"
-}, {
-	name: "Facebook",
-	image: "https://cdn.worldvectorlogo.com/logos/facebook-2.svg",
-	href: "https://facebook.com"
-}];
-
-var defaultSettings = {
-	columns: 4,
-	rowHeight: 20
-};
-
-/*chrome.storage.sync.set({'links': defaultLinks}, function() {
-    console.log("Message saved");
-});*/
-
 buildLinks();
 
 var links = null;
 var currentLink = null;
 
+function getLinks(callback) {
+	chrome.storage.sync.get(['links'], function(result) {
+		
+		callback((result.links != undefined) ? result.links : defaults.links);
+	});
+}
+
 function buildLinks() {
 	$("#links").empty();
-	chrome.storage.sync.get(['links'], function(result) {
-		console.log(JSON.stringify(result.links));
-		links = result.links;
-		for(let i = 0; i < result.links.length; i++) {
-			let href = result.links[i].href;
-			let name = result.links[i].name;
-	
-			linkElement = $('<a/>', {
-				href: href
-			}).html(name);
-	
-			$("#links").append(createLink(result.links[i]));
+	getLinks(function (newLinks) {
+		console.log(JSON.stringify(newLinks));
+		console.log(newLinks);
+		links = newLinks;
+
+		for(let i = 0; i < newLinks.length; i++) {
+			$("#links").append(createLink(newLinks[i]));
 		}
+
+		styleLinks();
+	});
+}
+
+// Apply style to links
+function styleLinks() {
+
+	let columnWidth = (100 / defaults.layout.columns) + "%";
+	let rowHeight = defaults.layout.rowHeight + "em";
+
+	$(".link-spacer").css({
+		width: columnWidth,
+		height: rowHeight,
+		padding: defaults.layout.linkMargin + "em"
+	});
+
+	$(".link-div").css({
+		'border-width': defaults.layout.linkPadding + "em"
 	});
 }
 
@@ -65,13 +63,8 @@ function saveAndReloadLinks() {
 }
 
 function createLink(linkData) {
-
-	let percent = (100 / defaultSettings.columns);
 	
-	let marginDiv = $('<div/>', {class: "link-spacer"}).css({
-		width: percent + "%",
-		height: defaultSettings.rowHeight + "em"
-	});
+	let marginDiv = $('<div/>', {class: "link-spacer"});
 	
     let imageDiv = $('<div/>', {class: "link-div"})
     .css({
@@ -85,7 +78,6 @@ function createLink(linkData) {
 	
 	link.on("contextmenu", function(e) {
 		e.preventDefault();
-		console.log("Clicked", linkData.name);
 		openModal(linkData);
 	});
 	

@@ -1,7 +1,7 @@
 {
 	"manifest_version": 2,
 	"name": "Handy Tab",
-	"version": "0.1",
+	"version": "0.1.0",
 	"permissions" : ["management", "storage", "tabs"],
 	"chrome_url_overrides" : {
 		"newtab": "index.html"

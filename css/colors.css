@@ -1,0 +1,14 @@
+:root {
+    --text-color: #111111;
+    --chrome-link-color: #333;
+    --chrome-link-color-hover: #555;
+}
+
+.col-normal {
+    background-color: rgb(235, 235, 235)
+}
+
+.col-danger {
+    background-color: rgb(236, 75, 0);
+    color: #eee;
+}

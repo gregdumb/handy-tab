@@ -30,6 +30,8 @@ function styleLinks() {
 	let columnWidth = (100 / defaults.layout.columns) + "%";
 	let rowHeight = defaults.layout.rowHeight + "em";
 
+	console.log("Margin", defaults.layout.linkMargin);
+
 	$(".link-spacer").css({
 		width: columnWidth,
 		height: rowHeight,
@@ -68,10 +70,8 @@ function createLink(linkData) {
 	
 	link.on("contextmenu", function(e) {
 		e.preventDefault();
-		openModal(linkData);
+		openLinkModal(linkData);
 	});
-	
-	console.log("Created link", linkData.image);
 	
     return marginDiv;
 }

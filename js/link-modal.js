@@ -1,5 +1,5 @@
 
-function openModal(linkData) {
+function openLinkModal(linkData) {
 	
 	let title = "";
 	
@@ -19,14 +19,14 @@ function openModal(linkData) {
 	$("#link-modal").css({display: "block"});
 }
 
-function closeModal() {
+function closeLinkModal() {
 	$("#link-modal").css({display: "none"});
 }
 
 // Close modal on background click
 $("#link-modal").on("click", function(e) {
 	if(e.target.id === "link-modal") {
-		closeModal();
+		closeLinkModal();
 	}
 });
 

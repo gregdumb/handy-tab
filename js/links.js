@@ -1,10 +1,11 @@
 var links = null;
 var currentLink = null;
 
+buildLinks();
+
 // Retrieve links from chrome sync, or from defaults if sync is empty
 function getLinks(callback) {
 	chrome.storage.sync.get(['links'], function(result) {
-		
 		callback((result.links != undefined) ? result.links : defaults.links);
 	});
 }

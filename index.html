@@ -15,13 +15,14 @@
             
 			<div id="chrome-links">
 				<a href="#" id="settings-button" title="Chrome Settings"><i class="fas fa-cog fa-5x"></i></a>
-				<a href="#" id="extensions-button" title="Extensions"><i class="fas fa-puzzle-piece fa-5x"></i></a> 
+				<a href="#" id="extensions-button" title="Extensions"><i class="fas fa-puzzle-piece fa-5x"></i></a>
+				<a href="#" id="history-button" title="History"><i class="fas fa-history fa-5x"></i></a> 
 				<a href="#" id="addlink-button" title="Add Bookmark"><i class="fas fa-plus fa-5x"></i></a>
 				
 			</div>
 			
 		</div>
-		<div id="modal" class="modal-background">
+		<div id="link-modal" class="modal-background">
 			<div class="modal">
 				<h1 id="modal-title"></h1>
 				<form>
@@ -38,13 +39,14 @@
 						<input id="input-image" type="text" />
 					</label>
 				</form>
-				<button id="input-submit" class="col-normal">Submit</button>
+				<button id="input-submit" class="col-primary">Submit</button>
 				<button id="input-delete" class="col-danger" style="float: right;">Delete</button>
 			</div>
 		</div>
 		<script type="text/javascript" src="./lib/jquery-3.3.1.min.js"></script>
 		<script type="text/javascript" src="./js/defaults.js"></script>
 		<script type="text/javascript" src="./js/links.js"></script>
-        <script type="text/javascript" src="./js/content.js"></script>
+		<script type="text/javascript" src="./js/link-modal.js"></script>
+		<script type="text/javascript" src="./js/chrome-links.js"></script>
     </body>
 </html>

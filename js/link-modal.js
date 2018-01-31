@@ -1,15 +1,3 @@
-//$("#root").html("DOM manipulated by jquery");
-console.log("New tab page script running");
-
-$("#settings-button").on("click", function() {
-	chrome.tabs.update({url:'chrome://settings'});
-});
-
-$("#extensions-button").on("click", function() {
-	chrome.tabs.update({url:'chrome://extensions'});
-});
-
-buildLinks();
 
 function openModal(linkData) {
 	
@@ -28,22 +16,18 @@ function openModal(linkData) {
 	
 	clearValidation();
 	$("#modal-title").html(title);
-	$("#modal").css({display: "block"});
+	$("#link-modal").css({display: "block"});
 }
 
 function closeModal() {
-	$("#modal").css({display: "none"});
+	$("#link-modal").css({display: "none"});
 }
 
 // Close modal on background click
-$("#modal").on("click", function(e) {
-	if(e.target.id === "modal") {
+$("#link-modal").on("click", function(e) {
+	if(e.target.id === "link-modal") {
 		closeModal();
 	}
-});
-
-$("#addlink-button").on("click", function(e) {
-	openModal(null);
 });
 
 $("#input-submit").on("click", function() {
@@ -55,15 +39,12 @@ $("#input-submit").on("click", function() {
 	if(performValidation()) {
 		if(currentLink) {
 			// Edit current link
-			console.log("Replacing", currentLink.name);
-			console.log("with", newLink);
 			currentLink.name = newLink.name;
 			currentLink.href = newLink.href;
 			currentLink.image = newLink.image;
 		}
 		else {
 			// Create new link
-			console.log("Would create", newLink);
 			if(links != null) {
 				links.push(newLink);
 			}

@@ -47,6 +47,14 @@ input[type=text] {
 	border-color: red !important;
 }
 
+.validation-message {
+	color: red;
+	margin: 0;
+	padding-left: 1em;
+	display: inline-block;
+	font-size: 1.25em;
+}
+
 label {
 }
 

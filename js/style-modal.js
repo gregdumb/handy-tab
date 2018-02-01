@@ -1,4 +1,10 @@
 
+/** Syncing */
+
+var style = defaults.layout;
+
+/** ********* Modal ********* */
+
 function openStyleModal() {
     $("#style-modal").css({display: "block"});
 }
@@ -13,8 +19,18 @@ $("#style-modal").on("click", function(e) {
 	}
 });
 
+/** ********* Input Form ********* */
+
+function initStyleInputs() {
+    $("#input-link-spacing").val(style.linkMargin);
+}
+
 $("#input-link-spacing").on("input", function(e) {
-    console.log(e.target.value);
-    defaults.layout.linkMargin = e.target.value;
+    style.linkMargin = e.target.value;
+    styleLinks();
+});
+
+$("#input-image-padding").on("input", function(e) {
+    style.linkPadding = e.target.value;
     styleLinks();
 });

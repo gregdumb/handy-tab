@@ -61,7 +61,11 @@ function createLink(linkData) {
     let imageDiv = $('<div/>', {class: "link-div"})
     .css({
         "background-image": "url(\"" + linkData.image + "\")"
-    });
+	});
+	
+	if(linkData.image == "") {
+		imageDiv.append($("<p/>", {class: "link-name"}).html(linkData.name));
+	}
 
     link = $('<a/>', {href: linkData.href});
 

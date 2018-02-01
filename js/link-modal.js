@@ -51,7 +51,7 @@ $("#input-submit").on("click", function() {
 		}
 		
 		saveAndReloadLinks();
-		closeModal();
+		closeLinkModal();
 	}
 });
 
@@ -80,8 +80,12 @@ function performValidation() {
 		valid = false;
 	}
 	if($("#input-image").val() == "") {
-		$("#input-image").addClass("validation-failed");
-		valid = false;
+		//$("#input-image").addClass("validation-failed");
+		//valid = false;
+	}
+
+	if(valid === false) {
+		$("#validation-message").css({display: "inline-block"});
 	}
 	
 	return valid;
@@ -91,6 +95,7 @@ function clearValidation() {
 	$("#input-name").removeClass("validation-failed");
 	$("#input-href").removeClass("validation-failed");
 	$("#input-image").removeClass("validation-failed");
+	$("#validation-message").css({display: "none"});
 }
 
 function clearFields() {

@@ -1,9 +1,15 @@
 {
 	"manifest_version": 2,
 	"name": "UtiliTab",
-	"version": "0.2.0",
+	"version": "0.2.1",
 	"permissions" : ["management", "storage", "tabs"],
 	"chrome_url_overrides" : {
 		"newtab": "index.html"
+	},
+	"icons": {
+		"16": "img/icon-16.png",
+		"32": "img/icon-32.png",
+		"48": "img/icon-48.png",
+		"128": "img/icon-128.png"
 	}
 }

@@ -6,11 +6,17 @@
 }
 
 .col-normal {
-    background-color: rgb(235, 235, 235)
+	background-color: rgb(235, 235, 235);
+	color: var(--text-color-dark);
 }
 
 .col-primary {
     background-color: rgb(0, 130, 236);
+    color: var(--text-color-light);
+}
+
+.col-caution {
+    background-color: rgb(245, 131, 0);
     color: var(--text-color-light);
 }
 

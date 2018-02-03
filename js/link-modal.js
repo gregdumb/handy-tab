@@ -64,7 +64,7 @@ $("#input-delete").on("click", function() {
 		}
 		
 		saveAndReloadLinks();
-		closeModal();
+		closeLinkModal();
 	}
 });
 

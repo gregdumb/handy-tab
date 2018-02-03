@@ -19,27 +19,9 @@ function buildLinks() {
 		for(let i = 0; i < newLinks.length; i++) {
 			$("#links").append(createLink(newLinks[i]));
 		}
-
-		styleLinks();
-	});
-}
-
-// Apply style to link elements
-function styleLinks() {
-
-	let columnWidth = (100 / defaults.layout.columns) + "%";
-	let rowHeight = defaults.layout.rowHeight + "em";
-
-	console.log("Margin", defaults.layout.linkMargin);
-
-	$(".link-spacer").css({
-		width: columnWidth,
-		height: rowHeight,
-		padding: defaults.layout.linkMargin + "em"
-	});
-
-	$(".link-div").css({
-		'border-width': defaults.layout.linkPadding + "em"
+		
+		// Styles will be applied after links are loaded
+		loadStyle();
 	});
 }
 

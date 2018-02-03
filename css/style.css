@@ -33,7 +33,7 @@ body {
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-input[type=text] {
+input/*[type=text]*/ {
 	width: 100%;
 	padding: 6px 10px;
 	margin: 8px 0;
@@ -41,6 +41,19 @@ input[type=text] {
 	border: 1px solid #ccc;
 	border-radius: 4px;
 	box-sizing: border-box;
+}
+
+input[type=range] {
+	padding-left: 0;
+	padding-right: 0;
+}
+
+.input-column {
+	width: 49%;
+    display: inline-block;
+    box-sizing: border-box;
+	padding: 1em;
+    vertical-align: top;
 }
 
 .validation-failed {

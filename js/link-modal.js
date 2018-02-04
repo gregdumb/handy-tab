@@ -33,7 +33,7 @@ $("#link-modal").on("click", function(e) {
 $("#input-submit").on("click", function() {
 	newLink = {};
 	newLink.name = $("#input-name").val();
-	newLink.href = $("#input-href").val();
+	newLink.href = sanitizeHrefInput($("#input-href").val());
 	newLink.image = $("#input-image").val();
 	
 	if(performValidation()) {
@@ -59,7 +59,6 @@ $("#input-delete").on("click", function() {
 	if(currentLink != null) {
 		let index = links.indexOf(currentLink);
 		if(index != -1) {
-			console.log("Deleting at", index);
 			links.splice(index, 1);
 		}
 		
@@ -67,6 +66,17 @@ $("#input-delete").on("click", function() {
 		closeLinkModal();
 	}
 });
+
+function sanitizeHrefInput(href) {
+	var beginning = href.substring(0, 6);
+	
+	if(beginning === "https:" || beginning === "http:/") {
+		return href;
+	}
+	else {
+		return "http://" + href;
+	}
+}
 
 function performValidation() {
 	var valid = true;
@@ -80,8 +90,7 @@ function performValidation() {
 		valid = false;
 	}
 	if($("#input-image").val() == "") {
-		//$("#input-image").addClass("validation-failed");
-		//valid = false;
+		// Images are not required
 	}
 
 	if(valid === false) {

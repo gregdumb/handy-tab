@@ -2,7 +2,7 @@
  * Contains defaults
  */
 
-var defaults = {};
+const defaults = {};
 
 defaults.links = [{
     name: "Google",
@@ -24,5 +24,6 @@ defaults.layout = {
     linkMargins: 1,
 	linkPadding: 1,
 	linkBorderRadius: 0,
-	sideMargins: 20
+	sideMargins: 20,
+	pageMargins: 20
 }

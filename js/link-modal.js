@@ -16,11 +16,11 @@ function openLinkModal(linkData) {
 	
 	clearValidation();
 	$("#modal-title").html(title);
-	$("#link-modal").css({display: "block"});
+	$("#link-modal").css({visibility: 'visible', opacity: 1});
 }
 
 function closeLinkModal() {
-	$("#link-modal").css({display: "none"});
+	$("#link-modal").css({visibility: 'hidden', opacity: 0});
 }
 
 // Close modal on background click

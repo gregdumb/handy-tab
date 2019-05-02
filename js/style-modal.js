@@ -6,12 +6,12 @@
 /** ********* Modal ********* */
 
 function openStyleModal() {
-	$("#style-modal").css({display: "block"});
+	$("#style-modal").css({visibility: 'visible', opacity: 1});
 	initStyleInputs();
 }
 
 function closeStyleModal() {
-    $("#style-modal").css({display: "none"});
+    $("#style-modal").css({visibility: 'hidden', opacity: 0});
 }
 
 $("#style-modal").on("click", function(e) {

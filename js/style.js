@@ -30,7 +30,7 @@ function styleLinks() {
 	
 	console.log("Performing style with settings:", style);
 	
-	let columnWidth = (100 / style.columns) + "%";
+	let columnWidth = `calc(${(100 / style.columns)}% - 16px)`;
 	let rowHeight = style.rowHeight + "em";
 	let padding = style.linkMargins + "em";
 	let borderWidth = style.linkPadding + "em";
@@ -40,12 +40,12 @@ function styleLinks() {
 	$(".link-spacer").css({
 		width: columnWidth,
 		height: rowHeight,
-		padding: padding
+		//padding: padding
 	});
 
 	$(".link-div").css({
 		'border-width': borderWidth,
-		'border-radius': borderRadius
+		//'border-radius': borderRadius
 	});
 	
 	$("#links").css({

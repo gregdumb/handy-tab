@@ -38,27 +38,30 @@ function saveAndReloadLinks() {
 // Return a complete link element
 function createLink(linkData) {
 	
-	let marginDiv = $('<div/>', {class: "link-spacer"});
+	let card = $('<div/>', {class: "link-card"});
 	
-    let imageDiv = $('<div/>', {class: "link-div"})
-    .css({
-        "background-image": "url(\"" + linkData.image + "\")"
-	});
+    //let imageDiv = $('<div/>', {class: "link-div"})
+    //.css({
+    //    "background-image": "url(\"" + linkData.image + "\")"
+	//});
+
+	const link = $('<a/>', { href: linkData.href, class: 'link-a' });
+	const image = $('<img/>', { src: linkData.image, class: 'link-img' });
 	
 	if(linkData.image == "") {
-		imageDiv.append($("<p/>", {class: "link-name"}).html(linkData.name));
+		link.append($("<p/>", {class: "link-text"}).html(linkData.name || link.data.href));
+	}
+	else {
+		link.append(image);
 	}
 
-    link = $('<a/>', {href: linkData.href});
-
-	link.append(imageDiv);
-	marginDiv.append(link);
+	card.append(link);
 	
-	link.on("contextmenu", function(e) {
+	card.on("contextmenu", function(e) {
 		e.preventDefault();
 		openLinkModal(linkData);
 	});
 	
-    return marginDiv;
+    return card;
 }
 

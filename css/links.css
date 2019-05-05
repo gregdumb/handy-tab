@@ -26,21 +26,30 @@
     text-decoration: none;
 }
 
-.link-card {
+.link-slot {
     width: calc(16.6666666666666% - 32px);
     height: 176px;
 
     margin: 16px;
 
     overflow: hidden;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+.link-plus {
+    color: #555;
+    filter: drop-shadow(var(--elevation-6));
+}
+
+.link-card {
+    cursor: pointer;
     background-color: white;
     border: 1px solid #ddd;
     border-radius: 8px;
     transition: box-shadow 200ms, border 200ms, transform 200ms;
-
-    box-sizing: border-box;
-    display: flex;
 }
 
 @media screen and (max-width: 1650px) {

@@ -5,7 +5,7 @@ body {
 	color: var(--text-color-dark);
 
 	background-color: white;
-    background-image: url(https://upload.wikimedia.org/wikipedia/commons/6/6e/Monasterio_Khor_Virap%2C_Armenia%2C_2016-10-01%2C_DD_25.jpg);
+    
 	background-size: cover;
 	background-position: center;
 }
@@ -17,8 +17,11 @@ body {
 	bottom: 0;
 	left: 0;
 	right: 0;
-	text-align: center;
-	display: block;
+	padding: 32px;
+	overflow: auto;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	visibility: hidden;
 	opacity: 0;
 	transition: all 250ms;
@@ -30,9 +33,8 @@ body {
 	text-align: left;
 	padding: 2em;
 	width: 40em;
-	margin-top: 10%;
 	border-radius: 4px;
-	box-shadow: var(--elevation-10);
+	box-shadow: var(--elevation-20);
 	transition: all 1s;
 }
 

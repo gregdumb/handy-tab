@@ -19,6 +19,8 @@ function buildLinks() {
 		for(let i = 0; i < newLinks.length; i++) {
 			$("#links").append(createLink(newLinks[i]));
 		}
+
+		$("#links").append(createAddCard());
 		
 		// Styles will be applied after links are loaded
 		loadStyle();
@@ -38,7 +40,7 @@ function saveAndReloadLinks() {
 // Return a complete link element
 function createLink(linkData) {
 	
-	let card = $('<div/>', {class: "link-card"});
+	let card = $('<div/>', {class: "link-slot link-card"});
 	
     //let imageDiv = $('<div/>', {class: "link-div"})
     //.css({
@@ -65,3 +67,22 @@ function createLink(linkData) {
     return card;
 }
 
+function createAddCard() {
+	let card = document.createElement('div');
+	card.className = 'link-slot link-card';
+
+	let plus = document.createElement('i');
+	plus.className = 'fas fa-plus fa-5x link-plus';
+
+	card.appendChild(plus);
+
+	card.addEventListener('click', e => openLinkModal(null));
+
+	return card;
+}
+
+window.exportLinks = function () {
+	chrome.storage.sync.get(['links'], function(result) {
+		console.log(result);
+	});
+}

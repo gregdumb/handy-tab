@@ -1,8 +1,6 @@
 
 var style = null;
 
-console.log("STYLE RUNNING");
-
 // Retrieve style from chrome sync, or from defaults if sync is empty
 function getStyle(callback) {
 	chrome.storage.sync.get(['style'], function(result) {
@@ -13,42 +11,30 @@ function getStyle(callback) {
 function loadStyle() {
 	getStyle(function(newStyle) {
 		style = newStyle;
-		styleLinks();
+		applyStyle();
 	});
 }
 
 function saveStyle() {
 	if(style != null) {
-		chrome.storage.sync.set({style: style}, function() {
-			
-		});
+		delete style.columns;
+		delete style.rowHeight;
+		delete style.linkMargins;
+		delete style.linkPadding;
+		delete style.linkBorderRadius;
+		delete style.pageMargins;
+		chrome.storage.sync.set({ style });
 	}
 }
 
 // Apply style to link elements
-function styleLinks() {
+function applyStyle() {
 	
 	console.log("Performing style with settings:", style);
-	
-	let columnWidth = `calc(${(100 / style.columns)}% - 16px)`;
-	let rowHeight = style.rowHeight + "em";
-	let padding = style.linkMargins + "em";
-	let borderWidth = style.linkPadding + "em";
-	let borderRadius = style.linkBorderRadius + "em";
-	let linkDivWidth = (100 - style.pageMargins) + "%";
 
-	$(".link-spacer").css({
-		width: columnWidth,
-		height: rowHeight,
-		//padding: padding
-	});
-
-	$(".link-div").css({
-		'border-width': borderWidth,
-		//'border-radius': borderRadius
-	});
+	const bg = style.backgroundImage ? `url(${style.backgroundImage})` : 'none';
 	
-	$("#links").css({
-		//width: linkDivWidth
+	$('body').css({
+		'background-image': bg,
 	});
 }

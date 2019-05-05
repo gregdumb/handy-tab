@@ -10,7 +10,7 @@ defaults.links = [{
 	href: "https://google.com"
 },{
 	name: "Facebook",
-	image: "https://facebookbrand.com/wp-content/themes/fb-branding/prj-fb-branding/assets/images/fb-art.png",
+	image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Facebook_logo_%28square%29.png/600px-Facebook_logo_%28square%29.png",
 	href: "https://facebook.com"
 },{
     name: "Wikipedia",
@@ -20,13 +20,12 @@ defaults.links = [{
 	name: "Twitter",
 	image: "https://upload.wikimedia.org/wikipedia/fr/thumb/c/c8/Twitter_Bird.svg/1259px-Twitter_Bird.svg.png",
 	href: "https://twitter.com"
+},{
+	name: "YouTube",
+	image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/YouTube_Logo_2017.svg/512px-YouTube_Logo_2017.svg.png",
+	href: "https://www.youtube.com/"
 }];
 
 defaults.layout = {
-    columns: 4,
-    rowHeight: 20,
-    linkMargins: 1,
-	linkPadding: 2,
-	linkBorderRadius: 0,
-	pageMargins: 20
+	backgroundImage: '',
 }

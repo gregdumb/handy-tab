@@ -1,97 +1,94 @@
 <html>
-    <head>
-		<link rel="stylesheet" href="./css/colors.css" />
-		<link rel="stylesheet" href="./css/style.css" />
-		<link rel="stylesheet" href="./css/links.css" />
-		<script type="text/javascript" src="./lib/fontawesome-all.js"></script>
-		<title>New Tab</title>
-    </head>
-    <body>
-        <div id="root">
-			<div id="link-scroller">
-				<div id="links" class="links-container">
-					<!-- Populated by JQuery -->
-				</div>
-			</div>
-            
-			<div id="chrome-links">
-				<a href="#" id="settings-button" title="Chrome Settings"><i class="fas fa-cog fa-3x"></i></a>
-				<a href="#" id="extensions-button" title="Extensions"><i class="fas fa-puzzle-piece fa-3x"></i></a>
-				<a href="#" id="history-button" title="History"><i class="fas fa-history fa-3x"></i></a> 
-				<a href="#" id="style-button" title="Handy Tab Styling"><i class="fas fa-paint-brush fa-3x"></i></a>
-				<a href="#" id="addlink-button" title="Add Bookmark"><i class="fas fa-plus fa-3x"></i></a>
-				
-			</div>
+<head>
+	<meta name="viewport" content="width=device-width">
+	<link rel="stylesheet" href="./css/colors.css" />
+	<link rel="stylesheet" href="./css/style.css" />
+	<link rel="stylesheet" href="./css/links.css" />
+	<script type="text/javascript" src="./lib/fontawesome-all.js"></script>
+	<title>New Tab</title>
+</head>
+<body>
+		<div id="links" class="links-container">
+			<!-- Populated by JQuery -->
+		</div>
+					
+		<div id="chrome-links">
+			<a href="#" id="settings-button" title="Chrome Settings"><i class="fas fa-cog fa-3x"></i></a>
+			<a href="#" id="extensions-button" title="Extensions"><i class="fas fa-puzzle-piece fa-3x"></i></a>
+			<a href="#" id="history-button" title="History"><i class="fas fa-history fa-3x"></i></a> 
+			<a href="#" id="style-button" title="Handy Tab Styling"><i class="fas fa-paint-brush fa-3x"></i></a>
+			<a href="#" id="addlink-button" title="Add Bookmark"><i class="fas fa-plus fa-3x"></i></a>
 			
 		</div>
-		<div id="link-modal" class="modal-background">
-			<div class="modal">
-				<h1 id="modal-title"></h1>
-				<div>
-					<label for="input-name">
-						Name
-						<input id="input-name" type="text" />
+	
+	</div>
+	<div id="link-modal" class="modal-background">
+		<div class="modal">
+			<h1 id="modal-title"></h1>
+			<div>
+				<label for="input-name">
+					Name
+					<input id="input-name" type="text" />
+				</label>
+				<label for="input-href">
+					URL
+					<input id="input-href" type="text" />
+				</label>
+				<label for="input-image">
+					Image URL
+					<input id="input-image" type="text" />
+				</label>
+			</div>
+			<button id="input-submit" class="col-primary">Submit</button>
+			<p id="validation-message" class="validation-message">Fields are required!</p>
+			<button id="input-delete" class="col-danger" style="float: right;">Delete</button>
+		</div>
+	</div>
+	<div id="style-modal" class="modal-background">
+		<div class="modal">
+			<h1>Styling Settings</h1>
+			<div>
+				<div class="input-column">
+					<h3 style="text-align: center;">Links</h3>
+					<label for="input-link-spacing">
+						Link spacing
+						<input id="input-link-spacing" type="range" min="0.25" max="4" step="0.25" />
 					</label>
-					<label for="input-href">
-						URL
-						<input id="input-href" type="text" />
+					<label for="input-image-padding">
+						Image padding
+						<input id="input-image-padding" type="range" min="0" max="4" step="0.25" />
 					</label>
-					<label for="input-image">
-						Image URL
-						<input id="input-image" type="text" />
+					<label for="input-border-radius">
+						Edge curvature
+						<input id="input-border-radius" type="range" min="0" max="8" step="0.5" />
 					</label>
 				</div>
-				<button id="input-submit" class="col-primary">Submit</button>
-				<p id="validation-message" class="validation-message">Fields are required!</p>
-				<button id="input-delete" class="col-danger" style="float: right;">Delete</button>
-			</div>
-		</div>
-		<div id="style-modal" class="modal-background">
-			<div class="modal">
-				<h1>Styling Settings</h1>
-				<div>
-					<div class="input-column">
-						<h3 style="text-align: center;">Links</h3>
-						<label for="input-link-spacing">
-							Link spacing
-							<input id="input-link-spacing" type="range" min="0.25" max="4" step="0.25" />
-						</label>
-						<label for="input-image-padding">
-							Image padding
-							<input id="input-image-padding" type="range" min="0" max="4" step="0.25" />
-						</label>
-						<label for="input-border-radius">
-							Edge curvature
-							<input id="input-border-radius" type="range" min="0" max="8" step="0.5" />
-						</label>
-					</div>
-					<div class="input-column">
-						<h3 style="text-align: center;">Layout</h3>
-						<label for="input-num-columns">
-							Number of columns
-							<input id="input-num-columns" type="number" min="1" max="8" step="1" />
-						</label>
-						<label for="input-row-height">
-							Row height
-							<input id="input-row-height" type="range" min="10" max="40" step="1" />
-						</label>
-						<label for="input-page-margins">
-							Side margins
-							<input id="input-page-margins" type="range" min="0" max="40" step="5" />
-						</label>
-					</div>
-					<button id="input-apply-style" class="col-primary">Apply</button>
-					<button id="input-cancel-style" class="col-normal">Cancel</button>
-					<button id="input-default-style" class="col-caution" style="float: right;">Defaults</button>
+				<div class="input-column">
+					<h3 style="text-align: center;">Layout</h3>
+					<label for="input-num-columns">
+						Number of columns
+						<input id="input-num-columns" type="number" min="1" max="8" step="1" />
+					</label>
+					<label for="input-row-height">
+						Row height
+						<input id="input-row-height" type="range" min="10" max="40" step="1" />
+					</label>
+					<label for="input-page-margins">
+						Side margins
+						<input id="input-page-margins" type="range" min="0" max="40" step="5" />
+					</label>
 				</div>
+				<button id="input-apply-style" class="col-primary">Apply</button>
+				<button id="input-cancel-style" class="col-normal">Cancel</button>
+				<button id="input-default-style" class="col-caution" style="float: right;">Defaults</button>
 			</div>
 		</div>
-		<script type="text/javascript" src="./lib/jquery-3.3.1.min.js"></script>
-		<script type="text/javascript" src="./js/defaults.js"></script>
-		<script type="text/javascript" src="./js/style.js"></script>
-		<script type="text/javascript" src="./js/style-modal.js"></script>
-		<script type="text/javascript" src="./js/links.js"></script>
-		<script type="text/javascript" src="./js/link-modal.js"></script>
-		<script type="text/javascript" src="./js/chrome-links.js"></script>
-    </body>
+	<script type="text/javascript" src="./lib/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="./js/defaults.js"></script>
+	<script type="text/javascript" src="./js/style.js"></script>
+	<script type="text/javascript" src="./js/style-modal.js"></script>
+	<script type="text/javascript" src="./js/links.js"></script>
+	<script type="text/javascript" src="./js/link-modal.js"></script>
+	<script type="text/javascript" src="./js/chrome-links.js"></script>
+</body>
 </html>

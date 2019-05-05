@@ -49,6 +49,6 @@ function styleLinks() {
 	});
 	
 	$("#links").css({
-		width: linkDivWidth
+		//width: linkDivWidth
 	});
 }

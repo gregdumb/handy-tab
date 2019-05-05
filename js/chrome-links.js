@@ -1,20 +1,20 @@
 
-$("#settings-button").on("click", function() {
-	chrome.tabs.update({url:'chrome://settings'});
+$('#settings-button').on('click', () => {
+  chrome.tabs.update({url:'chrome://settings'});
 });
 
-$("#extensions-button").on("click", function() {
-	chrome.tabs.update({url:'chrome://extensions'});
+$('#extensions-button').on('click', () => {
+  chrome.tabs.update({url:'chrome://extensions'});
 });
 
-$("#history-button").on("click", function() {
-    chrome.tabs.update({url:'chrome://history'});
+$('#history-button').on('click', () => {
+  chrome.tabs.update({url:'chrome://history'});
 });
 
-$("#style-button").on("click", function() {
-	openStyleModal();
+$('#style-button').on('click', () => {
+  openStyleModal();
 });
 
-$("#addlink-button").on("click", function(e) {
-	openLinkModal(null);
+$('#addlink-button').on('click', e => {
+  openLinkModal(null);
 });

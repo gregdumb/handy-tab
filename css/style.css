@@ -27,6 +27,11 @@ body {
 	transition: all 250ms;
 }
 
+.modal-background-visible {
+	visibility: visible;
+	opacity: 1;
+}
+
 .modal {
 	background-color: white;
 	display: inline-block;

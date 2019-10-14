@@ -1,5 +1,6 @@
+import $ from 'jquery';
 
-var style = null;
+export let style = null;
 
 // Retrieve style from chrome sync, or from defaults if sync is empty
 function getStyle(callback) {

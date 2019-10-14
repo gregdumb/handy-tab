@@ -1,0 +1,32 @@
+{
+  "name": "utilitab",
+  "version": "1.0.0",
+  "description": "None of the existing extensions behaved the way I wanted them to, so I made this one.",
+  "private": true,
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gregdumb/handy-tab.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gregdumb/handy-tab/issues"
+  },
+  "homepage": "https://github.com/gregdumb/handy-tab#readme",
+  "devDependencies": {
+    "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^5.0.4",
+    "webpack": "^4.41.1",
+    "webpack-cli": "^3.3.9"
+  },
+  "dependencies": {
+    "jquery": "^3.4.1"
+  }
+}

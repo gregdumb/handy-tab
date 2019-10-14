@@ -29,3 +29,5 @@ defaults.links = [{
 defaults.layout = {
 	backgroundImage: '',
 }
+
+export default defaults;

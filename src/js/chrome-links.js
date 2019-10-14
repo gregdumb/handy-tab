@@ -1,3 +1,6 @@
+import $ from 'jquery';
+
+import { openStyleModal } from './style-modal';
 
 $('#settings-button').on('click', () => {
   chrome.tabs.update({url:'chrome://settings'});

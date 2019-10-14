@@ -1,6 +1,8 @@
+import $ from 'jquery';
+
 /** ********* Modal ********* */
 
-function openStyleModal() {
+export function openStyleModal() {
   $('#style-modal').addClass('modal-background-visible');
   initStyleInputs();
 }

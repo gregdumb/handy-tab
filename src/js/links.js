@@ -1,19 +1,17 @@
+import $ from 'jquery';
+import defaults from './defaults';
+
 var links = null;
-var currentLink = null;
+var currentLink = null; 
 
-buildLinks();
+import { linkStorage } from './storage';
 
-// Retrieve links from chrome sync, or from defaults if sync is empty
-function getLinks(callback) {
-  chrome.storage.sync.get(['links'], function(result) {
-    callback((result.links != undefined) ? result.links : defaults.links);
-  });
-}
+export default class Links {
 
-// Create link elements on DOM
-function buildLinks() {
-  $('#links').empty();
-  getLinks(function (newLinks) {
+  static async buildLinks() {
+    $('#links').empty();
+    const newLinks = await linkStorage.get();
+    console.log(newLinks);
     links = newLinks;
 
     for(let i = 0; i < newLinks.length; i++) {
@@ -24,7 +22,7 @@ function buildLinks() {
     
     // Styles will be applied after links are loaded
     loadStyle();
-  });
+  }
 }
 
 // Apply changes made to global 'links' variable

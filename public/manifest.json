@@ -6,10 +6,17 @@
 	"chrome_url_overrides" : {
 		"newtab": "index.html"
 	},
+	"applications": {
+    "gecko": {
+      "id": "utilitab@gregbrisebois.com",
+      "strict_min_version": "54.0"
+    }
+  },
 	"icons": {
 		"16": "img/icon-16.png",
 		"32": "img/icon-32.png",
 		"48": "img/icon-48.png",
 		"128": "img/icon-128.png"
-	}
+	},
+	"content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self';"
 }
